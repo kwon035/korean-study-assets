@@ -1,1 +1,184 @@
+<!-- 자음/모음 표에 모두 적용되는 CSS 스타일 -->
+<style>
+  /* 클래스 이름을 일반화하여 모든 표에 재사용 가능 */
+  .korean-letter-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+  }
+  .korean-letter-table td {
+    border: 1px solid #cccccc;
+    vertical-align: top; /* 내부 요소의 정렬 기준을 위쪽으로 설정 */
+  }
 
+  /* 클릭 가능한 첫 번째 칸 스타일 */
+  .korean-letter-table td:first-child {
+    width: 20%;
+    padding: 0; /* 내부 요소가 공간을 완전히 차지하도록 패딩 제거 */
+    cursor: pointer;
+  }
+
+  /* 정사각형 모양을 만드는 래퍼 */
+  .square-wrapper {
+    position: relative; /* 내부 콘텐츠의 기준점이 됨 */
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* 너비의 100% 만큼 아래쪽 패딩을 주어 정사각형 공간을 생성 */
+    transition: background-color 0.3s ease;
+  }
+
+  /* 정사각형 공간 안에 콘텐츠를 채우는 역할 */
+  .letter-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Flexbox를 사용해 내부 글자를 완벽하게 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  /* 호버 및 재생 중 효과는 정사각형 래퍼에 적용 */
+  .korean-letter-table td:first-child:not(.playing):hover .square-wrapper {
+    background-color: #f2825a;
+  }
+  .korean-letter-table td.playing .square-wrapper {
+    background-color: #a3e9a3;
+    color: #000;
+  }
+</style>
+
+<!-- ==================== 1. 기본 모음 표 (GitHub MP3 적용) ==================== -->
+<h2>Простые гласные</h2>
+<table class="korean-letter-table">
+  <tbody>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%95%84.mp3')"><div class="square-wrapper"><div class="letter-content">아</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%95%BC.mp3')"><div class="square-wrapper"><div class="letter-content">야</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%96%B4.mp3')"><div class="square-wrapper"><div class="letter-content">어</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%97%AC.mp3')"><div class="square-wrapper"><div class="letter-content">여</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%98%A4.mp3')"><div class="square-wrapper"><div class="letter-content">오</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9A%94.mp3')"><div class="square-wrapper"><div class="letter-content">요</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9A%B0.mp3')"><div class="square-wrapper"><div class="letter-content">우</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9C%A0.mp3')"><div class="square-wrapper"><div class="letter-content">유</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9C%BC.mp3')"><div class="square-wrapper"><div class="letter-content">으</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9D%B4.mp3')"><div class="square-wrapper"><div class="letter-content">이</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<!-- ==================== 2. 이중 모음 표 (GitHub MP3 적용) ==================== -->
+<h2>Сложные гласные</h2>
+<table class="korean-letter-table">
+  <tbody>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%95%A0.mp3')"><div class="square-wrapper"><div class="letter-content">애</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%96%84.mp3')"><div class="square-wrapper"><div class="letter-content">얘</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%97%90.mp3')"><div class="square-wrapper"><div class="letter-content">에</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%98%88.mp3')"><div class="square-wrapper"><div class="letter-content">예</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%99%80.mp3')"><div class="square-wrapper"><div class="letter-content">와</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%99%9C.mp3')"><div class="square-wrapper"><div class="letter-content">왜</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%99%B8.mp3')"><div class="square-wrapper"><div class="letter-content">외</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9B%8C.mp3')"><div class="square-wrapper"><div class="letter-content">워</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9B%A8.mp3')"><div class="square-wrapper"><div class="letter-content">웨</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9C%84.mp3')"><div class="square-wrapper"><div class="letter-content">위</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td onclick="playSound(this, 'https://kwon035.github.io/korean-study-assets/%EB%AA%A8%EC%9D%8C/%EC%9D%98.mp3')"><div class="square-wrapper"><div class="letter-content">의</div></div></td>
+      <td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ★★★ MP3 재생을 위한 자바스크립트 코드로 교체 ★★★ -->
+<script>
+  if (typeof playSound !== 'function') {
+    function playSound(element, soundUrl) {
+      var existingAudio = document.getElementById('custom-audio-player');
+      if (existingAudio) {
+        existingAudio.pause();
+        document.body.removeChild(existingAudio);
+      }
+      var playingElements = document.querySelectorAll('.korean-letter-table .playing');
+      playingElements.forEach(function(el) {
+        el.classList.remove('playing');
+      });
+      const audio = new Audio(soundUrl);
+      audio.id = 'custom-audio-player';
+      audio.onplaying = function() {
+        element.classList.add('playing');
+      };
+      audio.onended = function() {
+        element.classList.remove('playing');
+      };
+      audio.onerror = function() {
+        console.error("오디오를 불러오거나 재생할 수 없습니다. URL을 확인하세요:", soundUrl);
+        element.classList.remove('playing');
+      };
+      audio.play().catch(function(error) {
+        console.error("오디오 재생 오류:", error);
+        element.classList.remove('playing');
+      });
+    }
+  }
+</script>
